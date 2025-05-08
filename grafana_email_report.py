@@ -22,7 +22,7 @@ logging.basicConfig(
 
 # Email sender configuration
 EMAIL_SENDER = "rakeshkumar.ck01@gmail.com"  # Your Cisco email address
-EMAIL_PASSWORD = os.environ.get("EMAIL_APP_PASSWORD")  # Store your password securely in environment variables
+EMAIL_PASSWORD = st.secrets("EMAIL_APP_PASSWORD")  # Store your password securely in environment variables
 
 # Cisco SMTP configuration
 SMTP_SERVER = "smtp.gmail.com"  # Replace with the correct Cisco SMTP server address
@@ -166,6 +166,10 @@ send_frequency = st.selectbox(
     "Select how often to send the screenshots",
     ["Once", "Hourly", "Bihourly", "Every 2 minutes", "Every 5 minutes"]
 )
+if email_password:
+    st.write("Environment variable loaded successfully!")
+else:
+    st.write("EMAIL_PASSWORD is not set.")
 
 if st.button("Start Scheduler"):
     if not grafana_urls_input.strip():
