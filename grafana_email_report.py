@@ -22,7 +22,7 @@ logging.basicConfig(
 
 # Email sender configuration
 EMAIL_SENDER = "rakeshkumar.ck01@gmail.com"  # Your Cisco email address
-EMAIL_PASSWORD = st.secrets("EMAIL_APP_PASSWORD")  # Store your password securely in environment variables
+EMAIL_PASSWORD = st.secrets["EMAIL_APP_PASSWORD"]  # Store your password securely in environment variables
 
 # Cisco SMTP configuration
 SMTP_SERVER = "smtp.gmail.com"  # Replace with the correct Cisco SMTP server address
